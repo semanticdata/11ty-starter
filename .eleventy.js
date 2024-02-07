@@ -24,11 +24,6 @@ module.exports = function (config) {
         });
     });
 
-    // Pass-through
-    eleventyConfig.addPassthroughCopy({
-        "_site/assets": "/assets"
-    });
-
     return {
         markdownTemplateEngine: "njk",
         dir: {
@@ -39,4 +34,12 @@ module.exports = function (config) {
             output: "dist"
         }
     };
+};
+
+module.exports = function (eleventyConfig) {
+    // Folder / File Passthrough
+    eleventyConfig.addPassthroughCopy({
+        "_site/robots.txt": "/robots.txt",
+        "_site/assets": "/assets"
+    });
 };
